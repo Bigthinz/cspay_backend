@@ -99,7 +99,7 @@ app.listen(process.env.PORT,()=>{
 
 
 
-const token='EAAP8ZA1rZCrJgBACNBxdZCf3pZCV3WSOICeeS7d0FBvvcSDj4f7V4WbdABXZCCdQgeVo4SfqvZA3sdcXZBE2CyAY9Qb1gCKOkZA66yXfvBGYE2uCg5MiK1dy1w8ZCZBq5ZB3pO1gnagxYFQeg6rs6NjxZCvotgYSKWxQ2ocB7hgPJlMZBBx0Oq5OEPtKbRagTx1qfiZAyDXUCDiQofEAZDZD';
+const token=process.env.TOKEN;
 const mytoken=process.env.MYTOKEN;//prasath_token
 
 
@@ -283,6 +283,32 @@ app.get("/webhook",(req,res)=>{
   })
 
 
+  app.post('/api/paystack', async (req, res) => {
+
+    // Retrieve the request's body
+    const event = req.body;
+    if(event.data.status === 'success'){
+        const result = await detectIntentText('ok')
+              
+      // console.log(result)
+      // console.log("------------------------------------------------------------------------")
+      // console.log(result)
+      // res.json(result)
+      res.status(200).send(result)
+    // Do something with event
+    }
+    // console.log('event status ' +event.data.status)
+
+
+    // if(event){
+    //   res.send(200);
+    // }
+
+    
+    
+  })
+
+
 
 
 
@@ -323,10 +349,52 @@ app.get("/webhook",(req,res)=>{
             res.status(200).send(payload)
             
         }
+
+        if(tag === 'PayConfirm'){
+
+          var val = Math.floor(1000 + Math.random() * 9000);
+
+          const response = await  axios({
+            "method":"POST",
+            "url":"https://api.paystack.co/transaction/initialize",
+            "headers": {
+              "Authorization": `Bearer sk_test_d530d8438785aa1a73d95638b7b2ea496d1418bf`,
+            },
+            // "Authorization":" Bearer sk_test_d530d8438785aa1a73d95638b7b2ea496d1418bf",
+            "Content-Type":"application/json",
+            "data":{
+                "amount": "1000", 
+                "email": "bigthinzcount@email.com",
+                "currency": "GHS",
+                "reference": val,
+                "mobile_money": {
+                  "phone" : "0545058937",
+                  "provider" : "MTN"
+                }
+              }
+                
+           
+          })
+
+        console.log('=======================================')
+        console.log('payment processing....')
+        if(response){
+          
+          console.log(response.data.data.authorization_url)
+        }
+        console.log('=======================================')
+
+
+        }
         
     }
         
   })
+
+
+
+  
+
 
 
 

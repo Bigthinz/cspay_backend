@@ -19,7 +19,7 @@ const fs = require('fs');
      const query = 'Hello';
      const languageCode = 'en'
  
-  
+  const sessionNum = Math.floor(1000 + Math.random() * 9000)
    
      
      // Imports the Google Cloud Some API library
@@ -42,9 +42,9 @@ const fs = require('fs');
      );
    
      const detectIntentText  = async(queryInput)=> {
-         const sessionId = '123456788'
+         const sessionId = '8788935002'
  
-     //   const sessionId = Math.random().toString(36).substring(7);
+      //  const sessionId = Math.random().toString(36).substring(7);
        const sessionPath = client.projectLocationAgentSessionPath(
          projectId,
          location,

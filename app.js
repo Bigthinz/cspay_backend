@@ -9,6 +9,7 @@ const {sendToWhatsapp} = require('./whatsapp')
 const { SessionsClient } = require("@google-cloud/dialogflow-cx/build/src/v3/sessions_client");
 const fs = require('fs');
 const { detectIntentText } = require("./dialogflow_api");
+const sendMail = require("./email");
 
 const app=express().use(body_parser.json());
 
@@ -401,6 +402,12 @@ app.get("/webhook",(req,res)=>{
 console.log('working........')
 
 app.get("/",(req,res)=>{
+
+  sendMail({
+    email: 'bigthinzcount@gmail.com',
+    subject: 'Your password reset token (valid for 10min)',
+    message:"test my email message"
+})
     res.send('welcome backend from king dave')
     // res.status(200).send("hello this is webhook setup");
 });

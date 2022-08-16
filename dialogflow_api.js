@@ -42,7 +42,7 @@ const fs = require('fs');
      );
    
      const detectIntentText  = async(queryInput)=> {
-         const sessionId = '8788935002'
+         const sessionId = '87889354896552'
  
       //  const sessionId = Math.random().toString(36).substring(7);
        const sessionPath = client.projectLocationAgentSessionPath(

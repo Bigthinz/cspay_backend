@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app=express().use(body_parser.json());
 
-const token='EAAP8ZA1rZCrJgBAAiZCzKUozdZCC40dPBKF8qUSvQGSmPYHDr3gv5td3b9PcZCRqKrgr0G7wYl2rPEtzMFZBawKMyC5dtvZADmZBNYMVtWEjQEf7mGTxIyhEZAnrYLU10ZCGNLJZCV6POdwZASA8cVwXZBe23Fp0GN104mN5gkOLlxFaCfFYCmqvwsA5zT7YVIloVJPSsqClLVZCNwrgZDZD';
+const token=process.env.TOKEN;
 const mytoken=process.env.MYTOKEN;//prasath_token
 
 
@@ -129,7 +129,7 @@ exports.sendToWhatsapp = async (req,res)=>{
 
 
                    
-                     axios({
+                      axios({
                         method:"POST",
                         url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
                         data:{ 
@@ -203,7 +203,7 @@ exports.sendToWhatsapp = async (req,res)=>{
                     });
                     }else{
 
-                        axios({
+                         axios({
                             method:"POST",
                             url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
                             data:{ 
@@ -291,7 +291,7 @@ exports.sendToWhatsapp = async (req,res)=>{
                      
                 }else{
 
-                     axios({
+                      axios({
                         method:"POST",
                         url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
                         data:{ 

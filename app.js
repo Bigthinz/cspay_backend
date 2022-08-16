@@ -9,7 +9,7 @@ const {sendToWhatsapp} = require('./whatsapp')
 const { SessionsClient } = require("@google-cloud/dialogflow-cx/build/src/v3/sessions_client");
 const fs = require('fs');
 const { detectIntentText } = require("./dialogflow_api");
-const sendMail = require("./email");
+// const sendMail = require("./email");
 
 const app=express().use(body_parser.json());
 
@@ -100,7 +100,7 @@ app.listen(process.env.PORT,()=>{
 
 
 
-const token=process.env.TOKEN;
+const token='EAAP8ZA1rZCrJgBADUBGeewLs3uEiycSNcxZAWqZC5sZAYlCawMcrYGU5JLB1RtUDHJOZAb1g4nUQF8nfqkYn7NuSeQRins0zMlZA3dJusMCGjZB7PLu0ID2jdzBGeW9Vzo2lOFi4z70DMGs9Kqn1CZCDGegE2Cg3NBrxzVHy6m2L5LXjA5wiS20VNczecRuOxRtBW9Vb5j2ZB4ZCwZDZD';
 const mytoken=process.env.MYTOKEN;//prasath_token
 
 
@@ -312,6 +312,10 @@ app.get("/webhook",(req,res)=>{
 
 
 
+  
+
+
+
 
   app.post('/api/messages', async (req, res) => {
 
@@ -330,7 +334,7 @@ app.get("/webhook",(req,res)=>{
             
                 var val = Math.floor(1000 + Math.random() * 9000);
                 console.log(val);
-                const session = '123456788'
+                const session = '1234565848'
 
                 
    
@@ -403,11 +407,11 @@ console.log('working........')
 
 app.get("/",(req,res)=>{
 
-  sendMail({
-    email: 'bigthinzcount@gmail.com',
-    subject: 'Your password reset token (valid for 10min)',
-    message:"test my email message"
-})
+//   sendMail({
+//     email: 'bigthinzcount@gmail.com',
+//     subject: 'Your password reset token (valid for 10min)',
+//     message:"test my email message"
+// })
     res.send('welcome backend from king dave')
     // res.status(200).send("hello this is webhook setup");
 });

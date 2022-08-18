@@ -91,16 +91,13 @@ console.log('hery')
 
 // detectIntentAudio();
 
-app.listen(process.env.PORT,()=>{
-    console.log("webbot is listening");
-    
-});
 
 
 
 
 
-const token='EAAP8ZA1rZCrJgBADUBGeewLs3uEiycSNcxZAWqZC5sZAYlCawMcrYGU5JLB1RtUDHJOZAb1g4nUQF8nfqkYn7NuSeQRins0zMlZA3dJusMCGjZB7PLu0ID2jdzBGeW9Vzo2lOFi4z70DMGs9Kqn1CZCDGegE2Cg3NBrxzVHy6m2L5LXjA5wiS20VNczecRuOxRtBW9Vb5j2ZB4ZCwZDZD';
+
+const token=process.env.TOKEN
 const mytoken=process.env.MYTOKEN;//prasath_token
 
 
@@ -414,4 +411,12 @@ app.get("/",(req,res)=>{
 // })
     res.send('welcome backend from king dave')
     // res.status(200).send("hello this is webhook setup");
+});
+
+
+
+
+app.listen(process.env.PORT,()=>{
+  console.log("webbot is listening");
+  
 });

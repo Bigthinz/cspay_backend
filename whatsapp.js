@@ -8,7 +8,7 @@ const app=express().use(body_parser.json());
 
 const token=process.env.TOKEN;
 const mytoken=process.env.MYTOKEN;//prasath_token
-
+//674Awerty@123
 
 //to verify the callback url from dashboard side - cloud api side
 app.get("/webhook",(req,res)=>{
@@ -211,6 +211,10 @@ exports.sendToWhatsapp = async (req,res)=>{
                             "messaging_product": "whatsapp",
                             "recipient_type": "individual",
                             "type": "text",
+                            "header": {
+                                "text": "Csitsa Pay",
+                                "type": "text"
+                            },
                             "text": {
                                 "body": initResponse
                             },
@@ -299,6 +303,10 @@ exports.sendToWhatsapp = async (req,res)=>{
                         "messaging_product": "whatsapp",
                         "recipient_type": "individual",
                         "type": "text",
+                        "header": {
+                            "text": "Csitsa Pay",
+                            "type": "text"
+                        },
                         "text": {
                             "body": initResponse
                         },

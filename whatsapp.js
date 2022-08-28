@@ -6,8 +6,8 @@ require('dotenv').config();
 
 const app=express().use(body_parser.json());
 
-const token=process.env.TOKEN;
-const mytoken=process.env.MYTOKEN;//prasath_token
+const token=`${process.env.TOKEN}`;
+const mytoken=`${process.env.MYTOKEN}`;//prasath_token
 //674Awerty@123
 
 //to verify the callback url from dashboard side - cloud api side

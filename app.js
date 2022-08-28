@@ -121,7 +121,7 @@ app.get("/webhook",(req,res)=>{
 });
 
 
-    app.post("/webhook",sendToWhatsapp);//i want some 
+    // app.post("/webhook",sendToWhatsapp);//i want some 
       
 
 
